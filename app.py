@@ -14,6 +14,57 @@ if 'admin_oturum' not in st.session_state:
 if not st.session_state.admin_oturum:
     st.markdown("""
         <style>
+        /* Genel Metin Renklerini Kilitle */
+html, body, [data-testid="stAppViewContainer"], .stMarkdown, p, span, label {
+    color: #ffffff !important;
+}
+
+/* Butonları Sabitle (Yeşil Butonlar) */
+.stButton button {
+    background-color: #28a745 !important;
+    color: white !important;
+    border: 1px solid #28a745 !important;
+    transition: 0.3s opacity;
+}
+
+.stButton button:hover {
+    opacity: 0.8;
+    color: white !important;
+}
+
+/* Kırmızı (Sil) Butonları Kilitle */
+div[data-testid="column"] button:contains("Sil"), 
+div[data-testid="column"] button:contains("Günü Sil"),
+button:contains("Oturumu Kapat") {
+    background-color: #842029 !important;
+    color: white !important;
+    border: 1px solid #842029 !important;
+}
+
+/* Giriş Kutuları (Input) ve Selectboxlar */
+input, textarea, select, div[data-baseweb="select"] {
+    background-color: #1E232D !important;
+    color: white !important;
+    -webkit-text-fill-color: white !important; /* Safari için düzeltme */
+}
+
+/* Popover (Saat tıklayınca açılan kutu) Arka Planı */
+div[data-testid="stPopoverContent"] {
+    background-color: #1E232D !important;
+    border: 1px solid #28a745 !important;
+    color: white !important;
+}
+
+/* Sekme (Tab) Yazıları */
+button[data-baseweb="tab"] p {
+    color: white !important;
+    font-weight: bold !important;
+}
+
+/* Safari'de beyaz olan input etiketleri için */
+.stTextInput label, .stSelectbox label {
+    color: white !important;
+}
             .login-box { background-color: #1E232D; padding: 30px; border-radius: 15px; border: 1px solid #28a745; }
         </style>
     """, unsafe_allow_html=True)
