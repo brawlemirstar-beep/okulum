@@ -14,57 +14,56 @@ if 'admin_oturum' not in st.session_state:
 if not st.session_state.admin_oturum:
     st.markdown("""
         <style>
-        /* Genel Metin Renklerini Kilitle */
-html, body, [data-testid="stAppViewContainer"], .stMarkdown, p, span, label {
-    color: #ffffff !important;
-}
+        /* 1. TÜM SAYFAYI KARART */
+    html, body, [data-testid="stAppViewContainer"], [data-testid="stHeader"] {
+        background-color: #0E1117 !important;
+        color: #FFFFFF !important;
+    }
 
-/* Butonları Sabitle (Yeşil Butonlar) */
-.stButton button {
-    background-color: #28a745 !important;
-    color: white !important;
-    border: 1px solid #28a745 !important;
-    transition: 0.3s opacity;
-}
+    /* 2. TÜM YAZILARI BEYAZA ZORLA */
+    h1, h2, h3, h4, h5, h6, p, span, label, li, div {
+        color: #FFFFFF !important;
+    }
 
-.stButton button:hover {
-    opacity: 0.8;
-    color: white !important;
-}
+    /* 3. INPUT VE SEÇİM KUTULARINI KİLİTLE */
+    input, select, textarea, div[data-baseweb="select"], [role="listbox"] {
+        background-color: #1E232D !important;
+        color: white !important;
+        border: 1px solid #28a745 !important;
+        -webkit-text-fill-color: white !important; /* Safari için kritik */
+    }
 
-/* Kırmızı (Sil) Butonları Kilitle */
-div[data-testid="column"] button:contains("Sil"), 
-div[data-testid="column"] button:contains("Günü Sil"),
-button:contains("Oturumu Kapat") {
-    background-color: #842029 !important;
-    color: white !important;
-    border: 1px solid #842029 !important;
-}
+    /* 4. BUTONLARI RENKLENDİR */
+    .stButton button {
+        background-color: #28a745 !important;
+        color: white !important;
+        border-radius: 8px !important;
+        border: none !important;
+    }
+    
+    /* 5. SEKMELER (TABS) ÇÖZÜMÜ */
+    button[data-baseweb="tab"] {
+        background-color: transparent !important;
+    }
+    button[data-baseweb="tab"] p {
+        color: #FFFFFF !important;
+        font-size: 16px !important;
+    }
+    button[data-baseweb="tab"][aria-selected="true"] {
+        border-bottom: 2px solid #28a745 !important;
+    }
 
-/* Giriş Kutuları (Input) ve Selectboxlar */
-input, textarea, select, div[data-baseweb="select"] {
-    background-color: #1E232D !important;
-    color: white !important;
-    -webkit-text-fill-color: white !important; /* Safari için düzeltme */
-}
+    /* 6. AÇILIR PENCERELER (POPOVER) */
+    [data-testid="stPopoverContent"] {
+        background-color: #1E232D !important;
+        color: white !important;
+        border: 1px solid #28a745 !important;
+    }
 
-/* Popover (Saat tıklayınca açılan kutu) Arka Planı */
-div[data-testid="stPopoverContent"] {
-    background-color: #1E232D !important;
-    border: 1px solid #28a745 !important;
-    color: white !important;
-}
-
-/* Sekme (Tab) Yazıları */
-button[data-baseweb="tab"] p {
-    color: white !important;
-    font-weight: bold !important;
-}
-
-/* Safari'de beyaz olan input etiketleri için */
-.stTextInput label, .stSelectbox label {
-    color: white !important;
-}
+    /* 7. YAN MENÜ (SIDEBAR) */
+    [data-testid="stSidebar"] {
+        background-color: #1E232D !important;
+    }
             .login-box { background-color: #1E232D; padding: 30px; border-radius: 15px; border: 1px solid #28a745; }
         </style>
     """, unsafe_allow_html=True)
